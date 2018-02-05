@@ -1,4 +1,3 @@
-
 #Get file with passes and convert into table.
 def get_input(filename):
     table = []
@@ -13,6 +12,7 @@ def count_word(table):
     valid = 0
     data = []
     unique = []
+    not_anagrams = []
     for element in table:
         data.append(element.split())
 
@@ -21,8 +21,17 @@ def count_word(table):
             if element not in unique:
                 unique.append(element)
             else:
-                count +=1
+                count += 1
+
+        for word in unique:
+            if sorted(word) not in not_anagrams:
+                not_anagrams.append(sorted(word))
+            else:
+                count += 1
+
+        not_anagrams= []
         unique = []
+
         if count == 0:
             valid += 1
         count = 0
