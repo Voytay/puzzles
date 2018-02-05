@@ -12,19 +12,21 @@ def count_word(table):
     count = 0
     valid = 0
     data = []
+    unique = []
     for element in table:
         data.append(element.split())
+
     for line in data:
-        x = 0
-        for word in line:
-            test = line[x]
-            if word == test:
-                count += 1
-        if count < 2:
+        for element in line:
+            if element not in unique:
+                unique.append(element)
+            else:
+                count +=1
+        unique = []
+        if count == 0:
             valid += 1
-                
+        count = 0
+
     print(valid)
-
-
 
 count_word(get_input('passes.txt'))
