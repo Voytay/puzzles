@@ -24,4 +24,18 @@ def line_calc(table):
 
     print(check)
 
+
+def division_calc(table):
+    check = 0
+    for element in table:
+        for word in element:
+            diviser = int(word)
+            for i in range (1, len(element)):
+                if int(element[i]) % diviser == 0 and int(element[i]) / diviser != 1:
+                    check = check + (int(element[i]) / diviser)
+    print(check)
+
+
 line_calc(get_numbers("numbers.txt"))
+
+division_calc(get_numbers("numbers.txt"))
